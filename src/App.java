@@ -41,7 +41,7 @@
          UI.fillRect(LEFT-3, TOP-3, (width + 6),((1f/2f * width) + 6) );
          UI.setColor(Color.red);
          UI.fillRect(LEFT, TOP, (1f/4f *width),(1f / 2f * width)); //red rectangle on the left
-         UI.setColor(Color.green);
+         UI.setColor(Color.green.darker().darker());
          UI.fillRect(LEFT+(1f/4f *width), TOP, (3f/4f *width), (1f/6f * width)); //green rectangle on the left
          UI.setColor(Color.white);
          UI.fillRect(LEFT+(1f/4f *width), TOP+(1f/6f *width), (3f/4f *width), (1f/6f * width)); //white rectangle on the left
@@ -120,8 +120,17 @@
          UI.setColor(Color.red);
          UI.fillArc(LEFT-(Math.cos(Math.PI/3)*width ) , TOP-width, 2*width, 2*width, 240, 60);
 
-         UI.setColor(Color.black);
+         UI.setColor(Color.white);
          UI.fillRect(LEFT,TOP + (Math.sin(Math.PI/3)*width),width,width-(Math.sin(Math.PI/3)*width));
+        
+
+        
+         UI.print((Math.cos(Math.PI/3)*width -((Math.cos(Math.PI/3)*width) - ((Math.cos(Math.PI/3)*width) - ((1f/3f)*width)))));
+         //UI.print(Math.cos(Math.PI/3)*(1f/3f)*width,(2f/3f)*width,(2f/3f)*width);
+         UI.fillArc(LEFT+ (Math.cos(Math.PI/3)*(1f/3f)*width),TOP + ((Math.cos(Math.PI/6)*(2f/3f)*width)-(1f/3f)*width),(2f/3f)*width,(2f/3f)*width,0,60);
+         UI.fillArc(LEFT+ (Math.cos(Math.PI/3)*(1f/3f)*width),TOP + ((Math.cos(Math.PI/6)*(2f/3f)*width)-(1f/3f)*width),(2f/3f)*width,(2f/3f)*width,120,60);
+         UI.fillArc(LEFT+ (Math.cos(Math.PI/3)*(1f/3f)*width),TOP + ((Math.cos(Math.PI/6)*(2f/3f)*width)-(1f/3f)*width),(2f/3f)*width,(2f/3f)*width,240,60);
+
 
          
          
@@ -136,8 +145,27 @@
       * The flag is 1/2 as high as it is wide (ratio 1:2).
       */
      public void drawKoruFlag() {
-         /*# YOUR CODE HERE */
- 
+        double width = UI.askDouble("How wide: ");
+
+        UI.setColor(Color.red);
+        UI.fillRect(LEFT,TOP,(1f/2f)*width,(1f/2f)*width);
+        UI.setColor(Color.blue);
+        UI.fillRect(LEFT+(1f/2f)*width,TOP,(1f/2f)*width,(1f/2f)*width);
+        UI.setColor(Color.white);
+        UI.fillArc(LEFT + (3f/14f)*width,TOP - ((2f/7f)*width-(1f/4f)*width),(4f/7f)*width,(4f/7f)*width,0,360);
+        UI.setColor(Color.blue);
+        UI.fillArc(LEFT + (51f/175f)*width,TOP + (36f/875f)*width,(73f/175f)*width,(73f/175f)*width,0,360);
+
+        UI.setColor(Color.blue);
+        UI.fillArc(LEFT + (51f/175f)*width,TOP + (36f/875f)*width,(73f/175f)*width,(73f/175f)*width,0,360);
+
+        UI.setColor(Color.blue);
+        UI.fillArc(LEFT + (41f/70f)*width,TOP + (237f/1750f)*width,(8f/35f)*width,(8f/35f)*width,240,120);
+
+        UI.setColor(Color.white);
+        UI.fillArc(LEFT + (43f/70f)*width,TOP + (41f/250f)*width,(6f/35f)*width,(6f/35f)*width,0,360);
+
+
      }
  
      public void setupGUI(){
