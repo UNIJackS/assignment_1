@@ -19,7 +19,7 @@
   * from  http://www.crwflags.com/fotw/flags/
   */
  
- public class App{
+ public class FlagDrawer{
  
      public static final double LEFT = 100;  // the left side of the flags
      public static final double TOP = 50;    // the top of the flags
@@ -36,9 +36,6 @@
          UI.println("UAE Flag");
          double width = UI.askDouble("How wide: ");
         
-
-         UI.setColor(Color.black);
-         UI.fillRect(LEFT-3, TOP-3, (width + 6),((1f/2f * width) + 6) );
          UI.setColor(Color.red);
          UI.fillRect(LEFT, TOP, (1f/4f *width),(1f / 2f * width)); //red rectangle on the left
          UI.setColor(Color.green.darker().darker());
@@ -48,6 +45,8 @@
          UI.setColor(Color.black);
          UI.fillRect(LEFT+(1f/4f *width), TOP+(2f/6f *width), (3f/4f *width), (1f/6f * width)); //blue rectangle on the left
 
+         UI.setColor(Color.black);
+         UI.drawRect(LEFT, TOP,width,(1f/2f) * width);
      }
  
      /**
@@ -61,9 +60,6 @@
          UI.clearGraphics();
          UI.println("Greenland Flag");
          double width = UI.askDouble("How wide: ");
-        
-         UI.setColor(Color.black);
-         UI.fillRect(LEFT-3, TOP-3, width + 6,((2f/3f * width) + 6) );
 
          UI.setColor(Color.white);
          UI.fillRect(LEFT, TOP, width, 2f/6f*width);
@@ -77,7 +73,12 @@
          UI.setColor(Color.red);
          UI.fillArc(LEFT + 1f/6f*width,TOP + 1f/9f*width, 4f/9f * width, 4f/9f*width,0,180);
 
+         UI.setColor(Color.ORANGE);
+         UI.drawLine(LEFT, TOP, LEFT + width, TOP);
+
          
+         UI.setColor(Color.black);
+         UI.drawRect(LEFT, TOP,width,(2f/3f) * width);
      }
      
      /**
@@ -90,9 +91,6 @@
          UI.clearGraphics();  
          UI.println("Czech Flag");
          double width = UI.askDouble("How wide: ");
-
-         UI.setColor(Color.black);
-         UI.fillRect(LEFT-3, TOP-3, width + 6,((2f/3f * width) + 6) );
          
          UI.setColor(Color.blue);
          UI.fillRect(LEFT, TOP,1f/2f *width, 2f/3f*width); 
@@ -108,6 +106,12 @@
 
          UI.setColor(Color.red);
          UI.fillRect(LEFT+1f/2f*width,TOP+ 1f/3f*width, 1f/2f*width,1f/3f*width);
+
+         UI.setColor(Color.ORANGE);
+         UI.drawLine(LEFT, TOP, LEFT + width, TOP);
+
+         UI.setColor(Color.black);
+         UI.drawRect(LEFT, TOP,width,(2f/3f) * width);
      }
      
      /**   CHALLENGE
@@ -115,7 +119,7 @@
       * Draw the Misubishi Logo.
       */
      public void drawMitsubishiLogo() {
-         /*# YOUR CODE HERE */
+         UI.clearGraphics();
          double width = UI.askDouble("How wide: ");
          UI.setColor(Color.red);
          UI.fillArc(LEFT-(Math.cos(Math.PI/3)*width ) , TOP-width, 2*width, 2*width, 240, 60);
@@ -125,15 +129,10 @@
         
 
         
-         UI.print((Math.cos(Math.PI/3)*width -((Math.cos(Math.PI/3)*width) - ((Math.cos(Math.PI/3)*width) - ((1f/3f)*width)))));
-         //UI.print(Math.cos(Math.PI/3)*(1f/3f)*width,(2f/3f)*width,(2f/3f)*width);
          UI.fillArc(LEFT+ (Math.cos(Math.PI/3)*(1f/3f)*width),TOP + ((Math.cos(Math.PI/6)*(2f/3f)*width)-(1f/3f)*width),(2f/3f)*width,(2f/3f)*width,0,60);
          UI.fillArc(LEFT+ (Math.cos(Math.PI/3)*(1f/3f)*width),TOP + ((Math.cos(Math.PI/6)*(2f/3f)*width)-(1f/3f)*width),(2f/3f)*width,(2f/3f)*width,120,60);
          UI.fillArc(LEFT+ (Math.cos(Math.PI/3)*(1f/3f)*width),TOP + ((Math.cos(Math.PI/6)*(2f/3f)*width)-(1f/3f)*width),(2f/3f)*width,(2f/3f)*width,240,60);
 
-
-         
-         
  
      }
  
@@ -145,8 +144,10 @@
       * The flag is 1/2 as high as it is wide (ratio 1:2).
       */
      public void drawKoruFlag() {
+        UI.clearGraphics();
         double width = UI.askDouble("How wide: ");
 
+        UI.println();
         UI.setColor(Color.red);
         UI.fillRect(LEFT,TOP,(1f/2f)*width,(1f/2f)*width);
         UI.setColor(Color.blue);
@@ -165,7 +166,9 @@
         UI.setColor(Color.white);
         UI.fillArc(LEFT + (43f/70f)*width,TOP + (41f/250f)*width,(6f/35f)*width,(6f/35f)*width,0,360);
 
-
+        
+        UI.setColor(Color.black);
+        UI.drawRect(LEFT, TOP,width,(1f/2f)*width);
      }
  
      public void setupGUI(){
@@ -181,7 +184,7 @@
      }
  
      public static void main(String[] arguments){
-         App fd = new App();
+         FlagDrawer fd = new FlagDrawer();
          fd.setupGUI();
      }
  
